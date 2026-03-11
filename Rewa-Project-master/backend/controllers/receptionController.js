@@ -643,14 +643,17 @@ const receptionController = {
           "user",
           "name email phoneNumber customerDetails.firmName customerDetails.userCode"
         )
-        .populate("products.product", "name price quantity")
+        .populate(
+          "products.product",
+          "name price quantity category"
+        )
         .sort({ createdAt: -1 });
 
       res.json({ orders });
     } catch (error) {
       res.status(500).json({ error: "Error fetching pending orders" });
     }
-  },
+  },  
 
   getPendingPayments: async (req, res) => {
     try {

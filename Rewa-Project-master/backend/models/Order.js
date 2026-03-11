@@ -75,18 +75,19 @@ const orderSchema = new mongoose.Schema({
     enum: ["UPI", "netBanking", "COD", "Debit Card"],
   },
 
-  paymentStatus: {
-    type: String,
-    required: true,
-    enum: [
-      "pending",
-      "completed",
-      "failed",
-      "payment_received_by_driver",
-      "cash_paid_offline",
-    ],
-    default: "pending",
-  },
+ paymentStatus: {
+  type: String,
+  required: true,
+  enum: [
+    "pending",
+    "partial",
+    "completed",
+    "failed",
+    "payment_received_by_driver",
+    "cash_paid_offline",
+  ],
+  default: "pending",
+},
   paymentStatusHistory: [
     {
       status: String,
